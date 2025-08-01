@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kajzerka 3D</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .kajzerka-box {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .rotating-text {
+      font-size: 64px;
+      font-weight: bold;
+      animation: spin 6s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    .kajzerka-img {
+      width: 200px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+      animation: popin 2s ease forwards;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    @keyframes popin {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    #socials {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    #socials.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 24px;
+      display: block;
+      margin: 10px 0;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #00ccff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sekcja z obrotem i zdjęciem -->
+  <section class="section">
+    <div class="kajzerka-box">
+      <div class="rotating-text">Kajzerka</div>
+      <img src="kajzerka.png" alt="kajzerka" class="kajzerka-img">
+    </div>
+    <audio id="sound" src="kajzerka.mp3" autoplay></audio>
+  </section>
+
+  <!-- Sekcja z socialami -->
+  <section id="socials">
+    <h2>Znajdź mnie tutaj, mój królu 🫡</h2>
+    <a href="https://www.youtube.com/@Kaaj_zerka" target="_blank">📺 YouTube: @Kaaj_zerka</a>
+    <a href="https://discord.gg/9CsQ8HpF" target="_blank">💬 Discord: dołącz do serwera</a>
+  </section>
+
+  <script>
+    const audio = document.getElementById('sound');
+    const socials = document.getElementById('socials');
+
+    audio.addEventListener('ended', () => {
+      socials.classList.add('visible');
+      socials.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
