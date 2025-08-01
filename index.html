@@ -26,6 +26,8 @@
       display: flex;
       align-items: center;
       gap: 30px;
+      flex-wrap: wrap;
+      text-align: center;
     }
 
     .rotating-text {
@@ -54,16 +56,9 @@
     }
 
     #socials {
-      opacity: 0;
-      transform: translateY(100px);
-      transition: all 1s ease;
       text-align: center;
-      padding: 50px 20px;
-    }
-
-    #socials.visible {
-      opacity: 1;
-      transform: translateY(0);
+      padding: 100px 20px;
+      background: #1a1a1a;
     }
 
     a {
@@ -78,34 +73,29 @@
       text-decoration: underline;
       color: #00ccff;
     }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sekcja z obrotem i zdjęciem -->
+  <!-- Sekcja "Kajzerka" -->
   <section class="section">
     <div class="kajzerka-box">
       <div class="rotating-text">Kajzerka</div>
       <img src="kajzerka.png" alt="kajzerka" class="kajzerka-img">
     </div>
-    <audio id="sound" src="kajzerka.mp3" autoplay></audio>
   </section>
 
-  <!-- Sekcja z socialami -->
+  <!-- Sekcja sociali -->
   <section id="socials">
     <h2>Znajdź mnie tutaj, mój królu 🫡</h2>
     <a href="https://www.youtube.com/@Kaaj_zerka" target="_blank">📺 YouTube: @Kaaj_zerka</a>
     <a href="https://discord.gg/9CsQ8HpF" target="_blank">💬 Discord: dołącz do serwera</a>
   </section>
 
-  <script>
-    const audio = document.getElementById('sound');
-    const socials = document.getElementById('socials');
-
-    audio.addEventListener('ended', () => {
-      socials.classList.add('visible');
-      socials.scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
