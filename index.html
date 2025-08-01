@@ -2,100 +2,69 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Kajzerka 3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kajzerka</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       background: #111;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    .section {
-      height: 100vh;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      perspective: 1000px;
-    }
-
-    .kajzerka-box {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      text-align: center;
+      min-height: 100vh;
     }
 
     .rotating-text {
-      font-size: 64px;
+      font-size: 4rem;
       font-weight: bold;
-      animation: spin 6s linear infinite;
-      transform-style: preserve-3d;
+      margin-bottom: 2rem;
+      animation: rotate 5s linear infinite;
+      color: #f5c518;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
 
-    .kajzerka-img {
-      width: 200px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-      animation: popin 2s ease forwards;
-    }
-
-    @keyframes spin {
-      0%   { transform: rotateY(0deg); }
+    @keyframes rotate {
+      0% { transform: rotateY(0deg); }
       100% { transform: rotateY(360deg); }
     }
 
-    @keyframes popin {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .socials {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    #socials {
-      text-align: center;
-      padding: 100px 20px;
-      background: #1a1a1a;
-    }
-
-    a {
-      color: #00ffff;
+    .socials a {
+      color: #61dafb;
       text-decoration: none;
-      font-size: 24px;
-      display: block;
-      margin: 10px 0;
+      font-size: 1.5rem;
     }
 
-    a:hover {
-      text-decoration: underline;
-      color: #00ccff;
+    .socials a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #61dafb;
     }
 
-    h2 {
-      margin-bottom: 30px;
-      font-size: 32px;
+    img {
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
 <body>
-
-  <!-- Sekcja "Kajzerka" -->
-  <section class="section">
-    <div class="kajzerka-box">
-      <div class="rotating-text">Kajzerka</div>
-      <img src="kajzerka.png" alt="kajzerka" class="kajzerka-img">
-    </div>
-  </section>
-
-  <!-- Sekcja sociali -->
-  <section id="socials">
-    <h2>Znajdź mnie tutaj, mój królu 🫡</h2>
-    <a href="https://www.youtube.com/@Kaaj_zerka" target="_blank">📺 YouTube: @Kaaj_zerka</a>
-    <a href="https://discord.gg/9CsQ8HpF" target="_blank">💬 Discord: dołącz do serwera</a>
-  </section>
-
+  <div class="rotating-text">Kajzerka</div>
+  <div class="socials">
+    <a href="https://github.com/Kaajzerka" target="_blank">GitHub</a>
+    <a href="https://www.youtube.com/@Kaaj_zerka" target="_blank">YouTube</a>
+    <a href="https://discord.gg/NVUdHBMGm6" target="_blank">Discord</a>
+  </div>
+  <img src="kajzerka.png" alt="Kajzerka" />
 </body>
 </html>
